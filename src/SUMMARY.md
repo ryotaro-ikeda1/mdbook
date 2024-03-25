@@ -20,3 +20,7 @@
 - [Section D](SectionD.md)
 
   - [Subsection D-1](SectionD1.md)
+
+# Part IV
+
+- [Section E](SectionE.md)
