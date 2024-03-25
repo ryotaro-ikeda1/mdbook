@@ -1,1 +1,0 @@
-# Subsection C-3
