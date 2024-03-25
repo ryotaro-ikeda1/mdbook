@@ -1,0 +1,12 @@
+[book]
+authors = ["ryotaro.ikeda1"]
+language = "en"
+multilingual = false
+src = "src"
+title = "mdBook 勉強会"
+
+[build]
+build-dir = "book"                # the directory where the output is placed
+create-missing = true             # whether or not to create missing pages
+use-default-preprocessors = true  # use the default preprocessors
+extra-watch-dirs = []             # directories to watch for triggering builds
