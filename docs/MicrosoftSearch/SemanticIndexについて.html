@@ -1,0 +1,529 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Semantic Index - test</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded affix "><li class="part-title">Introduction</li><li class="chapter-item expanded "><a href="../Introduction/AmazonKendraTutorial.html"><strong aria-hidden="true">2.</strong> Amazon Kendra Tutorial</a></li><li class="chapter-item expanded "><a href="../Introduction/AmazonKendraWorkshop.html"><strong aria-hidden="true">3.</strong> Amazon Kendra Workshop</a></li><li class="chapter-item expanded "><a href="../Introduction/参考資料まとめ.html"><strong aria-hidden="true">4.</strong> 参考資料まとめ</a></li><li class="chapter-item expanded "><a href="../Introduction/検証過程・結果まとめ.html"><strong aria-hidden="true">5.</strong> 検証過程・結果まとめ</a></li><li class="chapter-item expanded "><a href="../Introduction/環境情報まとめ.html"><strong aria-hidden="true">6.</strong> 環境情報まとめ</a></li><li class="chapter-item expanded affix "><li class="part-title">Microsoft Search</li><li class="chapter-item expanded "><a href="../MicrosoftSearch/MicrosoftSearch（Graph）について.html"><strong aria-hidden="true">7.</strong> Microsoft Search</a></li><li class="chapter-item expanded "><a href="../MicrosoftSearch/SemanticIndexについて.html" class="active"><strong aria-hidden="true">8.</strong> Semantic Index</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">test</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="semantic-indexとは"><a class="header" href="#semantic-indexとは">Semantic Indexとは</a></h2>
+<p>Microsoft Graphを利用して、個人および組織のデータにアクセスし、セマンティック検索できるように作られるindexのこと。公式上では<code>Semantic Index for copilot</code>とあることからcopilot用に存在するようだが、このindexを単体で使用できるかが知りたい。</p>
+<p>注目点としては、</p>
+<ul>
+<li>copilot経由ではなく、直接Semantic Indexを利用可能か</li>
+<li>Microsoft 365 E3/E5ユーザーはSemantic Index利用可能か？</li>
+<li>利用可能な場合、どのようにindexにアクセスするのか？
+の3点。</li>
+</ul>
+<p><img src="SemanticIndex%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6.assets/image-20240320113757119.png" alt="" /></p>
+<h2 id="サポートされているコンテンツ-タイプ"><a class="header" href="#サポートされているコンテンツ-タイプ">サポートされているコンテンツ タイプ</a></h2>
+<p>セマンティック インデックスでは、次の表に示すユーザー メールボックスとファイルの種類のインデックス作成がサポートされており、時間の経過と共により多くの種類のファイルがサポートされています。 テーブルには、ユーザー レベルのインデックスとテナント レベルのインデックスでサポートされているファイルの種類の一覧が含まれています。</p>
+<div class="table-wrapper"><table><thead><tr><th>コンテンツ/ファイルの種類</th><th>ユーザー レベル</th><th>テナントのレベル</th></tr></thead><tbody>
+<tr><td>ユーザー メールボックス</td><td>サポート</td><td>該当なし</td></tr>
+<tr><td>委任されたメールボックス</td><td>非サポート</td><td>該当なし</td></tr>
+<tr><td>共有メールボックス</td><td>非サポート</td><td>該当なし</td></tr>
+<tr><td>アーカイブされたメールボックス データ</td><td>非サポート</td><td>該当なし</td></tr>
+<tr><td>アーカイブされた SharePoint データ</td><td>非サポート</td><td>非サポート</td></tr>
+<tr><td>ドキュメントのWord (doc/docx)</td><td>サポートされている</td><td>サポートされている</td></tr>
+<tr><td>PowerPoint (pptx)</td><td>サポートされている</td><td>サポートされている</td></tr>
+<tr><td>PDF ファイル</td><td>サポート</td><td>サポート</td></tr>
+<tr><td>Web ページ (aspx)</td><td>サポート</td><td>サポート</td></tr>
+<tr><td>OneNote ファイル (1)</td><td>サポート</td><td>サポート</td></tr>
+<tr><td>Graph コネクタ のデータ</td><td>該当なし</td><td>サポート</td></tr>
+</tbody></table>
+</div>
+<h2 id="インデックスの更新"><a class="header" href="#インデックスの更新">インデックスの更新</a></h2>
+<p>email：ほぼリアルタイムでインデックスが作成
+SharePoint Online：毎日インデックスが作成
+インデックス付きドキュメントが更新：変更はすぐにインデックスが作成</p>
+<p>SharePoiintに関しては、index化するサイトを意図的に除外することも可能</p>
+<h2 id="microsoft-azureサポート問い合わせ"><a class="header" href="#microsoft-azureサポート問い合わせ">Microsoft Azureサポート問い合わせ</a></h2>
+<p>概要:</p>
+<ul>
+<li>問い合わせ内容: 「Semantic index」利用について。</li>
+<li>対象: Microsoft 365 E3/E5ユーザー。アプリケーション組み込み前提。</li>
+<li>疑問: GraphAPI利用時のデータ取得範囲（SharePoint、Teams等）。</li>
+<li>追記: copilot経由ではなく、直接Semantic Index利用に関する質問。GraphAPIやMicrosoft Searchからの利用条件や設定について。</li>
+</ul>
+<p>質問:</p>
+<ol>
+<li>Microsoft 365 E3/E5ユーザーはSemantic Index利用可能か？</li>
+<li>Semantic IndexをAPIとして叩くことは可能か？</li>
+<li>GraphAPI利用時、データ取得に制限あり？API Permission必要？</li>
+<li>Semantic Index直接利用の条件、設定（特にGraphAPIでのドキュメント検索、Microsoft Searchからの利用）。</li>
+</ol>
+<blockquote>
+<p>[!answer]
+[回答内容]
+この度は、ご案内までのお時間を賜り誠にありがとうございます。<br />
+ご質問につきまして、以下に回答をまとめましたので、ご確認をお願いいたします。</p>
+<p>Semantic Index の必要ライセンスについて<br />
+はい、お客様のご認識の通りでございます。<br />
+Microsoft 365 E3、Microsoft 365 E5ライセンスは、 Semantic Index がご利用いただけます。</p>
+<p>Semantic Index の利用方法について<br />
+Semantic Index の利用に関しては、自動で有効化されているため特別な設定はございません<br />
+Semantic Indexは、 Microsoft Graph を介して個人や会社のデータとのやり取りを強化し、新しいインデックスを作成します。<br />
+そのため、 Microsoft Graph の API を実行した際に、ヒットする対象がインデックス付けされた情報として取得できるものであるとご認識いただければと思います。<br />
+ <br />
+&lt;参考情報&gt;<br />
+タイトル : Semantic Index for Copilot -管理<br />
+アドレス : https://learn.microsoft.com/ja-jp/microsoftsearch/semantic-index-for-copilot#administration<br />
+*** 以下抜粋 ***<br />
+Microsoft 365 管理センターを使用してセマンティック インデックスを準備および管理するためのオプションのアクティビティを管理者に提供します。<br />
+セマンティック インデックスを有効にするために管理上の関与は必要ありません。サービスは Microsoft によって自動的に有効になります。<br />
+セマンティック インデックスは Microsoft 365 Search の機能強化であり、無効にすることはできません。<br />
+*** 抜粋以上 ***</p>
+<p>取得できるデータの制限について
+取得できるデータに制限は特段なく、以下の対象となるデータが取得できるデータとなります。<br />
+ <br />
+&lt;参考情報&gt;<br />
+タイトル : Semantic Index for Copilot -セマンティック インデックスのしくみ<br />
+アドレス : https://learn.microsoft.com/ja-jp/microsoftsearch/semantic-index-for-copilot#how-the-semantic-index-works<br />
+*** 以下抜粋 ***<br />
+セマンティック インデックスは、 Microsoft 365 アプリ、SharePoint Online、および Microsoft Teams で Microsoft Copilot と検索結果を強化します。<br />
+これは、Microsoft によって自動的に有効にされるオンライン データの強化された検索エクスペリエンスと概念的理解をサポートするために、2 つのインデックスを作成することで行われます。<br />
+ユーザー レベルのインデックス作成では、作業データ のセットに対してのみ、目に合わせたインデックスが作成され、日常的なタスクで使用しやすくなっています。<br />
+これには、メール、メンションドキュメント、コメントや共有など、作成または操作するテキスト ベースのコンテンツが含まれます。<br />
+テナント レベルのインデックスは、サイトの継承を介してorganization内の 2 人以上がアクセスできるテキスト ベースの SharePoint Online ファイルを追加します。<br />
+ただし、ユーザーがロールベースのアクセス制御によって制御されるコンテンツに既にアクセスできる場合にのみ、結果がユーザーに表示されます。<br />
+さらに、SharePoint Online サイトは検索可能なままである必要があります。<br />
+*** 抜粋以上 ***</p>
+<p>Microsoft Graph との関係について<br />
+Microsoft Graph のデータへのアクセスには、ユーザーまたは管理者が必要なアクセス許可を付与する必要があり、その点につきましても特段変わりはないものと存じます。<br />
+ <br />
+&lt;参考情報&gt;<br />
+タイトル : Microsoft Copilot for Microsoft 365の概要-Microsoft Copilot for Microsoft 365のしくみ<br />
+アドレス : https://learn.microsoft.com/ja-jp/microsoft-365-copilot/microsoft-365-copilot-overview#how-does-microsoft-copilot-for-microsoft-365-work<br />
+*** 以下抜粋 ***<br />
+Copilot のセマンティック インデックスは、Microsoft Graph の上に配置された複数の LLM を使用して、ユーザーのクエリを解釈し、生産性の向上に役立つ、洗練された有意義な多言語応答を生成します。<br />
+これにより、何十億ものベクトル (特徴や属性の数学的表現) をすばやく検索して、組織内で関連性のある実用的な情報につなげることができます。<br />
+*** 抜粋以上 ***</p>
+</blockquote>
+<pre><code class="language-txt">サポート担当者様
+
+ご回答ありがとうございます。いくつか項目ごとに質問があります。
+
+## Semantic Index の必要ライセンスについて  
+
+Microsoft 365 E3/E5ライセンスで利用できる旨承知しました。
+GraphAPI経由でsemantic indexを利用する分には、特にライセンス以外の料金発生は発生しないという認識であっていますでしょうか？
+
+## Semantic Index の利用方法について  
+
+自動で有効化されている、GraphAPI実行時にindexがアクセスされる、という旨承知しました。
+GraphAPIで検索すると、自動的にsemantic indexに対して、セマンティック検索が行われると思いますが、あっていますでしょうか？
+
+また、セマンティック検索とは一般的にいう全文検索・ベクトル検索・ハイブリット検索と何が違うのでしょうか？ご回答いただける範囲で教えていただけると幸いです。
+
+## Microsoft Graph との関係について
+
+アクセス権限自体はGraph APIにアクセスするのと変わらないとのこと承知しました。
+可能な範囲で良いのですが、アクセス制御はsemantic indexの場合どのようにおこなっているのでしょうか？
+semantic indexは個人に一つ存在し、その人にしかアクセスできないデータだけindexに入っているから実質アクセス制御できている、というようなイメージであっていますか？
+
+## Semantic Index の更新について
+
+indexの更新について[公式ドキュメント](https://learn.microsoft.com/ja-jp/microsoftsearch/semantic-index-for-copilot#index-updates)に記載があるのですが、もう少し具体的な情報はありますでしょうか？例えば、SharePointのデータは毎日indexが作成されるとありますが、毎日1回ということでしょうか？また更新ではなく作成されるというのは、上書きではなく新しく別のindexが用意されるという意味でしょうか？他のOneDriveやTeamsのデータについてはどのような頻度で更新されるのかも併せてご教授いただけると幸いです。
+</code></pre>
+<blockquote>
+<p>[!answer]</p>
+<h3 id="semantic-index-の必要ライセンスについて"><a class="header" href="#semantic-index-の必要ライセンスについて">Semantic Index の必要ライセンスについて</a></h3>
+<p>はい、お客様のご認識の通りでございます。<br />
+Microsoft 365 E3、Microsoft 365 E5ライセンスについて、ライセンス以外の料金が発生することはございませんので、ご安心いただければと思います。</p>
+<h3 id="semantic-index-の利用方法について"><a class="header" href="#semantic-index-の利用方法について">Semantic Index の利用方法について</a></h3>
+<p>はい、お客様のご認識の通りでございます。<br />
+Graph APIで検索すると、自動的に Semantic Index に対して、セマンティック検索が行われる認識に相違ございません。</p>
+<h3 id="セマンティック検索と一般的にいう全文検索ベクトル検索ハイブリット検索の違いについて"><a class="header" href="#セマンティック検索と一般的にいう全文検索ベクトル検索ハイブリット検索の違いについて">セマンティック検索と、一般的にいう全文検索・ベクトル検索・ハイブリット検索の違いについて</a></h3>
+<p>特定の単語やフレーズを含む文書を検索するキーワード検索、文書の内容を数値化しその距離を測ることで類似度を算出するベクトル検索がありますが、セマンティック検索は、ベクトル検索を内包していると言えます。<br />
+セマンティック検索は、ベクトル検索を用いた上で、更に Semantic Index を用いて検索クエリの意図を理解し、検索結果の最適化を行います。</p>
+<h3 id="microsoft-graphでのアクセス制御に関して"><a class="header" href="#microsoft-graphでのアクセス制御に関して">Microsoft Graphでのアクセス制御に関して</a></h3>
+<p>お客様のご認識に相違ないと存じますが、Microsoft Graph の詳細につきましては、当サポート窓口には有用な情報が無くご案内が困難であることをご理解賜りますようお願い申し上げます。</p>
+<h3 id="semantic-index-の更新について"><a class="header" href="#semantic-index-の更新について">Semantic Index の更新について</a></h3>
+<p>弊社公開情報や過去事例を調査いたしましたが、Semantic Index の更新頻度や具体的な作成方法については公開されておりません。<br />
+また、OneDrive for Business やMicrosoft Teams のデータについても、その他明示的に記載した公開情報の確認に至りませんでした。<br />
+既にご参照いただいておりますが、以下記載内容を参考にしていただければと思います。<br />
+ <br />
+&lt;参考情報&gt;<br />
+タイトル : Semantic Index for Copilot<br />
+アドレス : https://learn.microsoft.com/ja-jp/microsoftsearch/semantic-index-for-copilot</p>
+</blockquote>
+<blockquote>
+<p>サポート担当者様</p>
+<p>semantic indexの制限についてご質問があります。
+semantic indexという名から想像するにAI Searchのindexのようなものが作成されていると解釈しております。
+その場合、そのindexを保持するにあたり、AI Searchのindexに存在する制限（クォータ）のようなものはありますでしょうか？</p>
+<h3 id="考えうる制限項目"><a class="header" href="#考えうる制限項目">考えうる制限項目</a></h3>
+<p>インデックス数
+index数がドキュメント数に応じて自動で増えていくのか？同じindexに永久にデータが入っていくのか
+データソース数
+外部のどの情報を持ってくるか。おそらくGraphで取得できるExchangeやTeams、SharePointなどのデータソースがすでにあると思いますが、それ以外の外部データコネクタなどの個数制限などがあるか
+インデックスの容量（例：300GB）
+どこまでのデータを取り込んで、検索対象にできるか。大量のドキュメントを持つユーザーでもすべての情報をindex化していますか？
+一つのindexに取り込めるドキュメントのサイズ
+AI Searchではプランごとに異なりますが、s3のプランであれば256MBのサイズまでのドキュメントは読み込めます。（ここでのドキュメントはtxtファイルの他PPTXやPDFも含まれます。）
+一つのindexに取り込めるテキストのサイズ
+ドキュメントを取り込んだ後、テキスト化した状態のデータがどれくらい一つのindexに入るか。AI SearchのS3では16MBまで取り込めました。</p>
+<p>意図としては、検索システムを構築することを考えた時に、AI SearchかMicrosoft Graph経由のsemantic indexかで、どちらを利用するかを検討しています。
+その比較として、各項目の比較をしたいと考えています。</p>
+<p>以上よろしくお願いいたします。</p>
+</blockquote>
+<h3 id="graphコネクタとプラグインについて"><a class="header" href="#graphコネクタとプラグインについて">Graphコネクタとプラグインについて</a></h3>
+<blockquote>
+<p>サポート担当者様</p>
+<p>以前別のサポートリクエストでsemantic indexについてお聞きしたときに、GraphAPIを呼び出すと自動的にsemantic indexにアクセスすると回答をいただきました
+（リクエストID：2403180060001082, 2403220030000996）</p>
+<h3 id="semantic-indexとgraphコネクタ"><a class="header" href="#semantic-indexとgraphコネクタ">semantic indexとGraphコネクタ</a></h3>
+<p>SharePointなどのデータは自動的にindex化されると思いますが、別サービスのBoxなどの外部データを取り込みたい時Graphコネクタを利用してデータを接続すると思います。
+その外部コネクタを利用してデータを同期した場合、semantic indexに自動で取り込まれますか？</p>
+<h3 id="semantic-indexとプラグイン"><a class="header" href="#semantic-indexとプラグイン">semantic indexとプラグイン</a></h3>
+<p>また、そのほかにプラグインで外部データを取り込む方法もあるという記事を拝見しました。
+（参考サイト：https://techcommunity.microsoft.com/t5/microsoft-mechanics-blog/how-microsoft-365-copilot-can-work-with-your-external-data/ba-p/3937645）
+プラグインで外部データを同期するのとGraphコネクタを使うのと何が異なり、どういう利点の違いがあるのでしょうか？
+参考サイトの場合は、copilotでデータを取得する方法で、今回はcopilotではなくGraphAPIを実行するための仕組みづくりである、という点も踏まえてご教授いただけると幸いです。
+（プラグインはcopilot専用だったりしますかね？）</p>
+<h3 id="プラグインの作成方法"><a class="header" href="#プラグインの作成方法">プラグインの作成方法</a></h3>
+<p>最後に、このプラグインを用いて外部データを取り込む方法について詳しく教えてください。
+もし参考資料などがあれば併せていただけると幸いです。特にBoxストレージサービスの情報を取得したいと考えています。</p>
+<p>以上よろしくお願いいたします。</p>
+</blockquote>
+<blockquote>
+<p>[!answer]</p>
+<h3 id="コネクタを利用してデータを同期した場合のsemantic-index-の動作について"><a class="header" href="#コネクタを利用してデータを同期した場合のsemantic-index-の動作について">コネクタを利用してデータを同期した場合の、Semantic Index の動作について</a></h3>
+<p>Microsoft Graph コネクタの動作としては、Microsoft Graph 内にデータを取り込んで Semantic Index 作成の対象とします。<br />
+そのため、Microsoft Graph コネクタを利用した場合、取り込んだデータを元に Semantic Index が新たに作成されます。</p>
+<p>Microsoft Graph コネクタの利用自体は無料でご利用いただけますが、Microsoft Graph コネクタからコンテンツを取り込む際にインデックス クォータが必要となる為、Microsoft Graph コネクタ クォータをご購入いただく必要がございます。<br />
+※Copilot 以外についても同様です。</p>
+<h3 id="-microsoft-graph-コネクタに必要なライセンス"><a class="header" href="#-microsoft-graph-コネクタに必要なライセンス">◇ Microsoft Graph コネクタに必要なライセンス</a></h3>
+<p>Microsoft Graph コネクタは外部データを Microsoft Graph に連携するツールですが、Microsoft Graph に統合するには、外部データにインデックスを付けてユーザーが検索できるようにする必要があります。</p>
+<p>その際に必要となるのが、Microsoft Graph コネクタ クォータです。<br />
+Microsoft Graph コネクタ クォータは、以下のライセンスを所有している場合は、 1 ライセンスにつき 500 個のインデックス クォータが付与されます。</p>
+<ul>
+<li>Microsoft 365 E5 またはOffice 365 E5</li>
+<li>Copilot for Microsoft 365</li>
+<li>Microsoft Viva Topics</li>
+</ul>
+<h3 id="-テナントのインデックス-クォータの確認方法"><a class="header" href="#-テナントのインデックス-クォータの確認方法">◇ テナントのインデックス クォータの確認方法</a></h3>
+<p>Microsoft 365 管理センターにて、テナントのインデックス クォータを確認いただけます。</p>
+<p>&lt;確認手順&gt;</p>
+<ol>
+<li>管理者アカウントで、Microsoft 365 管理センターにアクセスします。</li>
+<li>画面左側 [設定]-[検索とインテリジェンス] をクリックします。</li>
+<li>画面上部タブ [データソース] タブをクリックし "検索の接続クォータ使用率" にて、以下のようにインデックス クォータの総数と使用率の確認が可能です。</li>
+</ol>
+<p>‎ 例 ： 以下の表示を確認しております。</p>
+<ul>
+<li>E5 ライセンスなどで、インデックス クォータが付与されている場合 ：
+<ul>
+<li>検索の接続クォータ使用率 (‎0‎%)
+<ul>
+<li>0‎/‎25,000‎ 個のアイテムのインデックスが作成されました。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>E5 ライセンスなどを所持しておらず、インデックス クォータが付与されていない場合 ：
+<ul>
+<li>Search コネクタのクォータ使用率 (クォータ超過)
+<ul>
+<li>インデックスが作成された 0 この項目が利用可能なクォータ 0 を超えました</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>上記画面にてインデックス クォータの使用率をご確認いただき、クォータ使用率が超過している場合は、ライセンスのご購入をご検討いただけますと幸いです。</p>
+<p>&lt;クォータ購入手順&gt;</p>
+<ol>
+<li>管理者アカウントで、Microsoft 365 管理センターにアクセスします。</li>
+<li>画面左側 [課金情報] - [サービスを購入する] をクリックします。</li>
+<li>"サービスの購入" ページ下部にある [アドオン] をクリックします。</li>
+<li>"追加の Graph コネクタ容量" の [詳細] をクリックします。</li>
+<li>必要ライセンス数を選択し [購入] をクリックします。</li>
+</ol>
+<p>&lt;参考情報&gt;<br />
+タイトル : ライセンス要件と価格<br />
+アドレス : <a href="https://learn.microsoft.com/ja-jp/microsoftsearch/licensing">https://learn.microsoft.com/ja-jp/microsoftsearch/licensing</a></p>
+<p>タイトル : Microsoft Search の Microsoft Graph コネクタの概要<br />
+アドレス : <a href="https://learn.microsoft.com/ja-jp/microsoftsearch/connectors-overview">https://learn.microsoft.com/ja-jp/microsoftsearch/connectors-overview</a></p>
+<p>タイトル : Microsoft Graph connectors<br />
+アドレス : <a href="https://www.microsoft.com/microsoft-search/connectors/?category&amp;query">https://www.microsoft.com/microsoft-search/connectors/?category&amp;query</a></p>
+<h3 id="コネクタとプラグインの取り込みの違いについて"><a class="header" href="#コネクタとプラグインの取り込みの違いについて">コネクタとプラグインの取り込みの違いについて</a></h3>
+<p>動作の違いとしましては、Microsoft Graph コネクタでは、取り込んだデータを元にインデックスを作成しますが、プラグインはインデックスを作成しません。<br />
+プラグインでは、インデックスを作成する情報の代わりに AI に直接情報を渡し、AIがデータ取得の最適化を行います。</p>
+<p>また、プラグインは現在 Microsoft Teams の Microsoft 365 Chatでのみ機能しており、Copilot 専用のプラグインとなります。<br />
+どちらに利点があるかは、要件やニーズにより異なるため断定は困難ですが、Microsoft Graph コネクタ は、Microsoft 365 データ拡張に対し、プラグイン はアプリケーション機能の拡張としてご認識いただければと存じます。</p>
+<p>&lt;参考情報&gt;<br />
+タイトル : Microsoft Copilot for Microsoft 365 を拡張する - アプリをプラグインし、データを接続する<br />
+アドレス : <a href="https://learn.microsoft.com/ja-jp/microsoft-365-copilot/extensibility/#plug-in-your-apps-connect-your-data">https://learn.microsoft.com/ja-jp/microsoft-365-copilot/extensibility/#plug-in-your-apps-connect-your-data</a></p>
+<p>タイトル : Microsoft Copilot for Microsoft 365の機能拡張オプション<br />
+アドレス : <a href="https://learn.microsoft.com/ja-jp/microsoft-365-copilot/extensibility/decision-guide">https://learn.microsoft.com/ja-jp/microsoft-365-copilot/extensibility/decision-guide</a><br />
+*** 以下抜粋 ***<br />
+Microsoft Copilot for Microsoft 365用のプラグインはパブリック プレビュー段階にあり、Microsoft Teams のMicrosoft 365 Chatでのみ機能します。<br />
+*** 抜粋以上 ***</p>
+<p>タイトル : Microsoft Graph の概要 - 一般的な API 要求<br />
+アドレス : <a href="https://learn.microsoft.com/ja-jp/graph/overview#popular-api-requests">https://learn.microsoft.com/ja-jp/graph/overview#popular-api-requests</a></p>
+<p>タイトル : Microsoft Graph データ接続についてよく寄せられる質問<br />
+アドレス : <a href="https://learn.microsoft.com/ja-jp/graph/data-connect-faq">https://learn.microsoft.com/ja-jp/graph/data-connect-faq</a></p>
+<h3 id="プラグインの作成方法について"><a class="header" href="#プラグインの作成方法について">プラグインの作成方法について</a></h3>
+<p>プラグインの作成方法は、誠に恐れ入りますが、公開情報以上のご案内は困難であることを何卒ご理解賜りますようお願いいたします。<br />
+プラグインのデプロイ方法については、下記公開情報に手順が記載されておりますので、参考にしていただければと思います。</p>
+<p>&lt;参考情報&gt;<br />
+タイトル : コパイロット プラグインの作成と構成 (プレビュー) - Microsoft Copilot Studio アプリのデプロイ (管理者)<br />
+アドレス : <a href="https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/copilot-plugins-overview#deploy-the-microsoft-copilot-studio-app-admin">https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/copilot-plugins-overview#deploy-the-microsoft-copilot-studio-app-admin</a></p>
+<p>タイトル : 統合アプリの概要<br />
+アドレス : <a href="https://learn.microsoft.com/ja-jp/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps">https://learn.microsoft.com/ja-jp/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps</a></p>
+</blockquote>
+<h2 id="ppt側の営業情報"><a class="header" href="#ppt側の営業情報">PPT側の営業情報</a></h2>
+<blockquote>
+<p>[!info]
+Semantic Index for Copilotについて、青木葉さんに問い合わせをし、花ケ崎さんから以下の回答を得ました。</p>
+<p>高井＞花ケ崎経由で確認し、下記の内容で回答がありました。　ご質問の範囲はモダンワーク（M365）になり、現在我々の本部には担当がおらず、下記以上の回答が難しい状況でございまして、少しでも解決にお役立ていただけるとよいのですが、ご確認いただけますでしょうか
+もし、貴社内での利用を想定している場合の案件でしたら、アカウントチーム側にはモダンワーク側のスペシャリストもおりますので、そちらにお繋ぎさせていただきます。</p>
+<p>＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+MS Graph は従量制ではないので呼び出し回数による費用追加はありませんが、スロットリングが決まっていますので注意してください。</p>
+<p>https://learn.microsoft.com/en-us/graph/throttling-limits</p>
+<p>Entra ID で利用者ごとの token を取得して MS Graph を使うなら、データの権限は継承されます。
+村田さんのドキュメントは村田さんだけが対象になりますし、共有されているドキュメントは誰でも検索で取得できます。</p>
+<p>MS Graph の semantic index は、E3, E5 テナントや、Copilot を有効にしたテナントを優先的に、順次ロールアウトされていて、ユーザーや管理者で有効化 / 無効化などの管理はできないです。(下記ドキュメントをご案内ください)
+有効化されたテナントでは、Microsoft Graph の検索でも有効になっています。</p>
+<p>https://learn.microsoft.com/en-us/microsoftsearch/semantic-index-for-copilot
+We are rolling out semantic index for our Microsoft 365 E3/ E5 and Microsoft 365 Business Standard and Business Premium customers. We are also extending semantic index to Microsoft 365 A3, A5, Office 365 E3 and E5 users with a paid Copilot license. Status updates about availability are shared via the Microsoft 365 admin center and Microsoft 365 public roadmap.</p>
+<p>semantic index は上述の通り、自身で有効化など管理はできないので、確実に semantic indexer を保証して機能を提供したいなら、Azure AI Search などを組み合わせて自身で開発が必要です。(その場合、セキュリティフィルターを自前で構成する必要がありますね）</p>
+</blockquote>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ul>
+<li>Microsoft公式ドキュメント
+<ul>
+<li><a href="https://learn.microsoft.com/ja-jp/microsoftsearch/semantic-index-for-copilot">Semantic Index for Copilot</a></li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../MicrosoftSearch/MicrosoftSearch（Graph）について.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../MicrosoftSearch/MicrosoftSearch（Graph）について.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
