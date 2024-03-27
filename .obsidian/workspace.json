@@ -11,8 +11,12 @@
             "id": "0b09b2fbe79a83f3",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "src/chapter_1.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -67,7 +71,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SemanticIndexについて.md"
+                "file": "src/chapter_1.md"
               }
             }
           }
@@ -91,6 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "src/chapter_1.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -107,6 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "src/chapter_1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,8 +163,9 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "669f88ebba4a279a",
+  "active": "0b09b2fbe79a83f3",
   "lastOpenFiles": [
+    "SemanticIndexについて.md",
     "docs/FontAwesome/fonts/fontawesome-webfont.eot",
     "docs/FontAwesome/css/font-awesome.css",
     "docs/FontAwesome/fonts/fontawesome-webfont.woff2",
@@ -170,7 +177,6 @@
     "docs/FontAwesome/css",
     "docs/css/general.css",
     "docs/fonts/open-sans-v17-all-charsets-regular.woff2",
-    "docs/fonts/open-sans-v17-all-charsets-italic.woff2",
     "docs/favicon.svg",
     "docs/favicon.png",
     "book/FontAwesome/fonts/fontawesome-webfont.svg",
@@ -179,7 +185,6 @@
     "src/chapter_1.md",
     "src/SUMMARY.md",
     "SemanticIndexについて.assets/image-20240320113757119.png",
-    "SemanticIndexについて.md",
     "src/MicrosoftSearch/SemanticIndexについて.md",
     "src/daily-note/2024-03-27.md",
     "src/daily-note/2024-03-26.md",
