@@ -1,0 +1,259 @@
+{
+  "main": {
+    "id": "652577f310a0b679",
+    "type": "split",
+    "children": [
+      {
+        "id": "3f50bffbb0de7d3d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c0f7ed022c2047c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "src/daily-note/2024-03-26.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fe9dcc36d413b845",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "src/daily-note/2024-03-27.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a718f3a52e19677d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "src/ConnectorGuide/BoxGraphコネクタ作成手順.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "84160abf2747bae1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0b09b2fbe79a83f3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "src/daily-note/2024-03-27.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2255662bb3f129e8",
+    "type": "split",
+    "children": [
+      {
+        "id": "691a6277f81fe1cb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "669f88ebba4a279a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e3189015f27fbd1c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e5388033a8664c07",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "548b7330d3be5f4e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "src/daily-note/2024-03-27.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 347.5124969482422
+  },
+  "right": {
+    "id": "9d8586196e1acb52",
+    "type": "split",
+    "children": [
+      {
+        "id": "83371b08bd1bfb72",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "21d712835ffc06d2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "src/daily-note/2024-03-27.md",
+                "collapseAll": true,
+                "extraContext": true,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "734bba3eb6dc90db",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "src/daily-note/2024-03-27.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "cd0bd871cfc48d50",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "90c9bc4b964b4141",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "3ac7af386133b912",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 350.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "workspaces:Manage workspace layouts": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "3ac7af386133b912",
+  "lastOpenFiles": [
+    "src/MicrosoftSearch/SemanticIndexについて.md",
+    "src/daily-note/2024-03-27.md",
+    "src/daily-note/2024-03-26.md",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.md",
+    "src/MicrosoftSearch/MicrosoftSearch（Graph）について.md",
+    "src/MicrosoftSearch/msgraphライブラリ使用方法.md",
+    "src/Introduction/勉強会.md",
+    "src/Introduction/検証過程・結果まとめ.md",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.assets/image-20240326014000659.png",
+    "src/daily-note/2024-03-25.md",
+    "src/ConnectorGuide/OneDriveコネクタ作成手順.md",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.assets/image-20240326020835470.png",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.assets/image-20240326020736332.png",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.assets/image-20240326020145381.png",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.assets/image-20240326015851751.png",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.assets/image-20240326015523120.png",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.assets/image-20240326015510724.png",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.assets/image-20240326015049741.png",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.assets/image-20240326014817109.png",
+    "src/ConnectorGuide/BoxGraphコネクタ作成手順.assets",
+    "src/daily-note/2024-03-22.md",
+    "src/ConnectorGuide/AzureADとCognitoの接続手順.md",
+    "src/ConnectorGuide/AmazonKendraクォータについて.md",
+    "src/AmazonQA/定例会：2024-02-01.md",
+    "src/daily-note/2024-03-19.md",
+    "src/Introduction/検証過程・結果まとめ.assets/image-20240325150256968.png",
+    "src/AmazonQA/定例会：2024-02-08.md",
+    "src/ConnectorGuide/Teamsコネクタ作成手順.md",
+    "src/ConnectorGuide/Teamsコネクタ作成手順.assets/image-20240219150112721.png.sb-8e4341cd-ezSifN",
+    "src/ConnectorGuide/SPOコネクタ作成手順.md",
+    "src/ConnectorGuide/SPOコネクタ作成手順.assets/image-20240216165718106.png.sb-8e4341cd-IiYpMr",
+    "src/ConnectorGuide/SampleApp作成手順.md",
+    "src/ConnectorGuide/ExchangeOnlineコネクタ作成手順.md",
+    "src/ConnectorGuide/Boxコネクタ作成手順.md",
+    "src/ConnectorGuide/Boxカスタムアプリ作成手順.md",
+    "src/Introduction/環境情報まとめ.md",
+    "src/Introduction/AmazonKendraWorkshop.md",
+    "src/daily-note/2024-03-18.md",
+    "src/daily-note/2024-03-14.md",
+    "src/daily-note/2024-03-22.assets",
+    "src/MicrosoftSearch/MicrosoftSearch（Graph）について.assets",
+    "src/Introduction/検証過程・結果まとめ.assets",
+    "src/MicrosoftSearch/SemanticIndexについて.assets",
+    "src/MicrosoftSearch",
+    "src/AmazonQA/202403_KendraPoC課題サマリー.pdf",
+    "src/daily-note/2024-03-14.assets",
+    "Untitled.canvas"
+  ]
+}

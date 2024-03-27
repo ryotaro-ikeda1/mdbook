@@ -1,0 +1,45 @@
+{
+  "window:zoom-out": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "-"
+    }
+  ],
+  "window:zoom-in": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": ";"
+    }
+  ],
+  "daily-notes": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "`"
+    }
+  ],
+  "editor:delete-paragraph": [],
+  "editor:toggle-blockquote": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "M"
+    }
+  ],
+  "editor:toggle-numbered-list": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "."
+    }
+  ]
+}
