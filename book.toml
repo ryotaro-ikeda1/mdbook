@@ -1,0 +1,6 @@
+[book]
+authors = ["ryotaro.ikeda1"]
+language = "ja"
+multilingual = false
+src = "src"
+title = "test"
