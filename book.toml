@@ -1,9 +1,0 @@
-[book]
-authors = ["ryotaro.ikeda1"]
-language = "en"
-multilingual = false
-src = "src"
-title = "study-report"
-
-[build]
-build-dir = "book"                # the directory where the output is placed
